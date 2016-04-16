@@ -1,0 +1,9 @@
+node_modules/
+*.bak
+*.log
+.vscode
+typings/
+
+.idea
+tsd.json
+config/dev.js

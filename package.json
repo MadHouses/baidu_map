@@ -1,0 +1,30 @@
+{
+  "name": "baidu_map",
+  "version": "1.0.0",
+  "description": "wrapper of Baidu map API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadHouses/baidu_map.git"
+  },
+  "keywords": [
+    "baidu",
+    "map",
+    "百度地图",
+    "百度",
+    "地图"
+  ],
+  "author": "Deo Liang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MadHouses/baidu_map/issues"
+  },
+  "homepage": "https://github.com/MadHouses/baidu_map#readme",
+  "dependencies": {
+    "md5": "^2.1.0",
+    "request": "^2.71.0"
+  }
+}
