@@ -1,6 +1,6 @@
 {
   "name": "baidu_map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "wrapper of Baidu map API",
   "main": "index.js",
   "scripts": {
