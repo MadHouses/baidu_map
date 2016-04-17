@@ -18,7 +18,13 @@ $ npm install baidu_map
 var BaiduMap = require('baidu_map');
 
 // Get an api object for a certain ak/sk
-var baiduMap = BaiduMap({ak: 'ak', sk: 'sk'});
+var baiduMap = BaiduMap(
+  {
+    ak: 'ak',
+    sk: 'sk',
+    // Optional, default json, could be xml
+    output: 'xml'
+  });
 
 // Supported API
 {
@@ -29,6 +35,7 @@ var baiduMap = BaiduMap({ak: 'ak', sk: 'sk'});
   geoconv: "/geoconv/v1/",
   placeSuggestion: "/place/v2/suggestion/",
   placeSearch: "/place/v2/search",
+  placeDetail: "/place/v2/detail",
   placeEventSearch: "/place/v2/eventsearch",
   placeEventDetail: "/place/v2/eventdetail"
 }

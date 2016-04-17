@@ -3,9 +3,12 @@ var request = require('request');
 var qs = require('querystring');
 var md5 = require('md5');
 
+const OUTPUT_VALUES = ['json', 'xml'];
+
 function BaiduMap(config) {
   this.ak = config.ak;
   this.sk = config.sk;
+  this.output = OUTPUT_VALUES.indexOf(config.output) !== -1 ? config.output : 'json';
   this.apiBase = 'http://api.map.baidu.com';
 }
 
@@ -24,16 +27,16 @@ function generateSn(url, data, sk) {
 
 BaiduMap.prototype.doGetSn = function(url, data, callback) {
   const defaultData = {
-    output: 'json',
+    output: this.output,
     ak: this.ak,
-    timestamp: +new Date(),
+    timestamp: Date.now(),
   };
   Object.assign(data, defaultData);
   data.sn = generateSn(url, data, this.sk);
   const opts = {
     baseUrl: this.apiBase,
     url: url,
-    json: true,
+    json: this.output === 'json',
     method: 'GET',
     qs: data,
     useQuerystring: true
@@ -43,6 +46,11 @@ BaiduMap.prototype.doGetSn = function(url, data, callback) {
 };
 
 const api_list = {
+  // TODO:
+  // http://lbsyun.baidu.com/index.php?title=static
+  // http://lbsyun.baidu.com/index.php?title=yingyan/api/all
+  // http://lbsyun.baidu.com/index.php?title=viewstatic
+  // http://lbsyun.baidu.com/index.php?title=uri
   geocoder: "/geocoder/v2/",
   direction: "/direction/v1",
   directionRouteMatrix: "/direction/v1/routematrix",
@@ -50,6 +58,7 @@ const api_list = {
   geoconv: "/geoconv/v1/",
   placeSuggestion: "/place/v2/suggestion/",
   placeSearch: "/place/v2/search",
+  placeDetail: "/place/v2/detail",
   placeEventSearch: "/place/v2/eventsearch",
   placeEventDetail: "/place/v2/eventdetail"
 };
