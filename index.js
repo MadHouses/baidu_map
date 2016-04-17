@@ -32,7 +32,9 @@ BaiduMap.prototype.doGetSn = function(url, data, callback) {
     timestamp: Date.now(),
   };
   Object.assign(data, defaultData);
-  data.sn = generateSn(url, data, this.sk);
+  if (this.sk) {
+    data.sn = generateSn(url, data, this.sk);
+  }
   const opts = {
     baseUrl: this.apiBase,
     url: url,

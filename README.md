@@ -21,6 +21,7 @@ var BaiduMap = require('baidu_map');
 var baiduMap = BaiduMap(
   {
     ak: 'ak',
+    // Optional, if provided, it will calculate the sn every request
     sk: 'sk',
     // Optional, default json, could be xml
     output: 'xml'
